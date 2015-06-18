@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>SnapFresh Usage Heat Map</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+        <link rel="stylesheet" href="css/libs/leaflet.css">
+        <style>
+            body, html {
+                margin:0;
+                padding:0;
+                height: 95%;
+            }
+            body {
+                font-family:sans-serif;
+            }
+            body * {
+                font-weight:200;
+            }
+            #wrapper, #map {
+                height: 100%;
+                margin: 10px;
+            }
+            #zip {
+                margin-left: 10px;
+                margin-top: 10px;
+                padding-left: 2px;
+            }
+            #map {
+                margin-top: 30px;
+            }
+            .leaflet-container {
+                background: rgba(0, 0, 0, .8) !important;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <input id="zip" type="text" size="50" autofocus="autofocus" placeholder="Type an address, city, state, or zip code." />
+            <button id="search">Search</button>
+            <div id="map"></div>
+        </div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/libs/jquery-2.1.4.min.js"><\/script>')</script>
+        <script src="js/libs/leaflet.min.js"></script>
+        <script src="js/libs/heatmap.min.js"></script>
+        <script src="js/libs/leaflet-heatmap.unmin.js"></script>
+        <script src="js/main.js"></script>
+
+    </body>
+</html>
