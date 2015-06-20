@@ -1,0 +1,22 @@
+{
+  "name": "snapfresh",
+  "version": "1.0.0",
+  "description": "Data viz for snapfresh app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iOnline247/snapFresh.git"
+  },
+  "keywords": [
+    "lol"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iOnline247/snapFresh/issues"
+  },
+  "homepage": "https://github.com/iOnline247/snapFresh#readme"
+}
