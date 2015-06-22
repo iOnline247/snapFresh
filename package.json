@@ -1,0 +1,22 @@
+{
+  "name": "snapfresh",
+  "version": "0.1.0",
+  "description": "Visualization of snapFresh users in U.S.",
+  "main": "./src/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iOnline247/snapFresh.git"
+  },
+  "keywords": [
+    "snapfresh"
+  ],
+  "author": "Matthew Bramer, Jason Quisberth",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iOnline247/snapFresh/issues"
+  },
+  "homepage": "https://github.com/iOnline247/snapFresh#readme"
+}
