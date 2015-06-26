@@ -2,6 +2,9 @@
   "name": "snapfresh",
   "version": "0.1.0",
   "description": "Visualization of snapFresh users in U.S.",
+  "dependencies": {
+    "cron": ">= 1.0.9"
+  },
   "main": "./src/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
