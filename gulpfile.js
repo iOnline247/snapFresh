@@ -25,4 +25,4 @@ gulp.task("watch", function()	{
 });
 
 // Default Task
-gulp.task('default', ['js', 'cs', 'watch']);
+gulp.task('default', ['js', 'css', 'watch']);
