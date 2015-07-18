@@ -43,4 +43,4 @@ Temporary Items
 .apdisk
 
 # NodeJS
-/node_modules
+node_modules/
