@@ -19,7 +19,10 @@ gulp.task("js", function() {
 		.pipe(gulp.dest("build/js"))
 });
 
-gulp.task("default", function()	{
+gulp.task("watch", function()	{
 	gulp.watch("src/css/**/*.css", ["css"]);
 	gulp.watch("src/js/**/*.js", ["js"]);
 });
+
+// Default Task
+gulp.task('default', ['js', 'cs', 'watch']);
