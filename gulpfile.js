@@ -1,28 +1,48 @@
-var gulp = require("gulp"),
-	minifyCSS = require("gulp-minify-css"),
-	uglify = require("gulp-uglify"),
-	concat = require("gulp-concat")
+var gulp = require('gulp'),
+	minifyCSS = require('gulp-minify-css'),
+	jshint = require('gulp-jshint'),
+	uglify = require('gulp-uglify'),
+	concat = require('gulp-concat')
 
 ;
 
-gulp.task("css", function() {
-	return gulp.src("src/css/**/*.css")
-		.pipe(concat("main.min.css"))
+gulp.task('css', function() {
+	return gulp.src('src/css/**/*.css')
+		.pipe(concat('main.unmin.css'))
+		.pipe(gulp.dest('src/css'))
 		.pipe(minifyCSS())
-		.pipe(gulp.dest("build/css"))
+		.pipe(concat('main.min.css'))
+		.pipe(gulp.dest('build/css'))
 });
 
-gulp.task("js", function() {
-	return gulp.src("src/js/**/*.js")
-		.pipe(concat("main.js"))
+gulp.task("concatSourceJS", function() {
+	return gulp.src([
+			'src/js/libs/leaflet.min.js',
+			'src/js/libs/heatmap.min.js',
+			'src/js/libs/leaflet-heatmap.unmin.js',
+			'src/js/app.unmin.js'
+		])
+		.pipe(concat('main.unmin.js', {newLine: '\r\n;'}))
+		.pipe(jshint())
+		.pipe(gulp.dest('src/js'))
+		.pipe(concat('main.min.js'))
 		.pipe(uglify())
-		.pipe(gulp.dest("build/js"))
+		.pipe(gulp.dest('build/js'))
 });
 
-gulp.task("watch", function()	{
-	gulp.watch("src/css/**/*.css", ["css"]);
-	gulp.watch("src/js/**/*.js", ["js"]);
+gulp.task('concatBuildJS', function() {
+	return gulp.src([
+			'src/js/libs/leaflet.min.js',
+			'src/js/libs/heatmap.min.js',
+			'src/js/libs/leaflet-heatmap.unmin.js',
+			'src/js/app.unmin.js'
+		])
+		.pipe(concat('main.min.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('build/js'))
 });
 
-// Default Task
-gulp.task('default', ['js', 'css', 'watch']);
+gulp.task('default', function()	{
+	gulp.watch(['src/css/**/*.css', '!src/css/main.unmin.css'], ['css']);
+	gulp.watch(['src/js/**/*.unmin.js', '!src/js/main.unmin.js'], ['concatSourceJS']);
+});
