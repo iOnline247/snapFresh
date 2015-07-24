@@ -1,9 +1,9 @@
 var gulp = require('gulp'),
+  connect = require('gulp-connect'),
 	minifyCSS = require('gulp-minify-css'),
 	jshint = require('gulp-jshint'),
 	uglify = require('gulp-uglify'),
 	concat = require('gulp-concat')
-
 ;
 
 gulp.task('css', function() {
@@ -42,7 +42,18 @@ gulp.task('concatBuildJS', function() {
 		.pipe(gulp.dest('build/js'))
 });
 
-gulp.task('default', function()	{
+gulp.task('watch', function () {
 	gulp.watch(['src/css/**/*.css', '!src/css/main.unmin.css'], ['css']);
 	gulp.watch(['src/js/**/*.unmin.js', '!src/js/main.unmin.js'], ['concatSourceJS']);
 });
+
+// serve content within options.root value
+gulp.task('webserver', function() {
+  connect.server({
+    root: ['build','src'],
+    port: 8080,
+    livereload: true
+  });
+});
+
+gulp.task('default',['webserver', 'watch']);

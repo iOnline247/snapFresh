@@ -2,8 +2,12 @@ Data visualization for AllIncomeFood's snapfresh
 
 To get running:
 npm install
+gulp css
+gulp concatSourceJS
+gulp concatBuildJS
 gulp
 
+see gulp-connect option "root" to see where content its being served from
 
 Node project using Gulp streaming build system
 To be containerized with docker soon
@@ -17,3 +21,4 @@ gulp tut: https://travismaynard.com/writing/getting-started-with-gulp
 npm tutorial: http://nodeschool.io/#workshoppers
 docker tut: http://docs.docker.com/mac/started/
 gitignore samples: https://github.com/github/gitignore
+gulp-connect doc: https://www.npmjs.com/package/gulp-connect
