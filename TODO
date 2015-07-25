@@ -1,0 +1,4 @@
+edit gulp tasks related to css and concat to not modify source files
+  or add created source files to .gitignore
+create single gulp task to call gulp css, concatSourceJS, and concatBuildJS
+  for building for the first time
