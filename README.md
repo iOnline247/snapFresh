@@ -8,6 +8,8 @@ gulp concatBuildJS
 gulp
 
 Docker instuctions
+docker build -t <your username>/snapfresh .
+docker run -p 49160:8080 -d <your username>/snapfresh
 
 
 see gulp-connect option "root" to see where content its being served from

@@ -1,28 +1,37 @@
 FROM 	ubuntu:14.04
 
+# Replace shell with bash so we can source files
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
 RUN apt-get update && apt-get install -y \
 	curl
 
-# perform nvm tasks
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.25.4/install.sh | bash
-RUN nvm install 0.10.40
-RUN nvm alias default 0.10.40
+ENV NVM_DIR /usr/local/nvm
+ENV NODE_VERSION 0.10.40
+
+# Install nvm with node and npm
+RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.20.0/install.sh | bash \
+    && source $NVM_DIR/nvm.sh \
+    && nvm install $NODE_VERSION \
+    && nvm alias default $NODE_VERSION \
+    && nvm use default
+
+
+ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
+ENV PATH      $NVM_DIR/v$NODE_VERSION/bin:$PATH
 
 ADD . /src_app
 # Install app deps
 RUN  cd /src_app 
 RUN  npm install -g gulp
-RUN  npm install
 
-# build 
-RUN  css
-RUN  concatSourceJS 
-RUN  concatBuildJS 
+WORKDIR /src_app
 
 EXPOSE 8080
 # run application
-CMD ["cd ./src"]
-CMD ["mkdir -p ./node/express/json"]
-CMD ["mv src_app/cronjob/json/lat-long.json ./node/express/json"]
-CMD ["cd src_app"]
+#CMD ["mkdir -p ./src/node/express/json"]
+#CMD ["mv src_app/cronjob/json/lat-long.json ./src/node/express/json/"]
+CMD ["gulp css"]
+CMD ["gulp concatSourceJS"]
+CMD ["gulp concatBuildJS"]
 CMD ["gulp"]
