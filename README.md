@@ -1,6 +1,6 @@
 Data visualization for AllIncomeFood's snapfresh
 
-To get running:
+To get running (non-docker):
 npm install
 gulp css
 gulp concatSourceJS
