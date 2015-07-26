@@ -7,6 +7,9 @@ gulp concatSourceJS
 gulp concatBuildJS
 gulp
 
+Docker instuctions
+
+
 see gulp-connect option "root" to see where content its being served from
 
 Node project using Gulp streaming build system
