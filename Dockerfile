@@ -1,28 +1,28 @@
-FROM 	ubuntu:14.04
+FROM 	node:0.10
 
 # Replace shell with bash so we can source files
-RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+#RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
-RUN apt-get update && apt-get install -y \
-	curl
+#RUN apt-get update && apt-get install -y \
+#	curl
 
-ENV NVM_DIR /usr/local/nvm
-ENV NODE_VERSION 0.10.40
+#ENV NVM_DIR /usr/local/nvm
+#ENV NODE_VERSION 0.10.40
 
 # Install nvm with node and npm
-RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.20.0/install.sh | bash \
-    && source $NVM_DIR/nvm.sh \
-    && nvm install $NODE_VERSION \
-    && nvm alias default $NODE_VERSION \
-    && nvm use default
+#RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.20.0/install.sh | bash \
+#    && source $NVM_DIR/nvm.sh \
+#    && nvm install $NODE_VERSION \
+#    && nvm alias default $NODE_VERSION \
+#    && nvm use default
 
 
-ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
-ENV PATH      $NVM_DIR/v$NODE_VERSION/bin:$PATH
+#ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
+#ENV PATH      $NVM_DIR/v$NODE_VERSION/bin:$PATH
 
 ADD . /src_app
 # Install app deps
-RUN  cd /src_app 
+#RUN  cd /src_app 
 
 WORKDIR /src_app
 RUN  npm install

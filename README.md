@@ -10,8 +10,8 @@
   5. gulp
 
 ### To get running (with docker):
-  1. docker build -t <your username>/snapfresh .
-  2. docker run -p 49160:8080 -d <your username>/snapfresh
+  1. docker build -t [your username]/snapfresh .
+  2. docker run -p 49160:8080 -d [your username]/snapfresh
 
 __Note: See gulp-connect option "root" to see where content its being served from__
 
