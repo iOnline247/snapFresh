@@ -3,17 +3,17 @@
 ## Instructions
 
 ### To get running (non-docker):
-  1. npm install
-  2. gulp css
-  3. gulp concatSourceJS
-  4. gulp concatBuildJS
-  5. gulp
+  1. ```npm install```
+  2. ```gulp css```
+  3. ```gulp concatSourceJS```
+  4. ```gulp concatBuildJS```
+  5. ```gulp```
 
 ### To get running (with docker):
-  1. docker build -t [your username]/snapfresh .
-  2. docker run -p 49160:8080 -d [your username]/snapfresh
+  1. ```docker build -t [your username]/snapfresh .```
+  2. ```docker run -p 49160:8080 -d [your username]/snapfresh```
 
-__Note: See gulp-connect option "root" to see where content its being served from__
+__Note: See ```gulp-connect``` option "root" to see where content its being served from__
 
 Using Node verison 0.10.40
 suggested to use nvm to control multiple node versions
