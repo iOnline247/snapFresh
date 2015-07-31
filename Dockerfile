@@ -23,15 +23,16 @@ ENV PATH      $NVM_DIR/v$NODE_VERSION/bin:$PATH
 ADD . /src_app
 # Install app deps
 RUN  cd /src_app 
-RUN  npm install -g gulp
 
 WORKDIR /src_app
+RUN  npm install
+RUN  npm install -g gulp
 
 EXPOSE 8080
 # run application
 #CMD ["mkdir -p ./src/node/express/json"]
 #CMD ["mv src_app/cronjob/json/lat-long.json ./src/node/express/json/"]
-CMD ["gulp css"]
-CMD ["gulp concatSourceJS"]
-CMD ["gulp concatBuildJS"]
+RUN gulp css
+RUN gulp concatSourceJS
+RUN gulp concatBuildJS
 CMD ["gulp"]
